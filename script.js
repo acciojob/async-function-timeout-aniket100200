@@ -1,5 +1,4 @@
-//your JS code here. If required.
-	const form=document.querySelector("form"),
+const form=document.querySelector("form"),
 button=form.querySelector("#btn"),
 output=document.getElementById("output");
 	
@@ -13,11 +12,14 @@ button.addEventListener('click',(e)=>{
 
 async function synchFun(text,delay) {
  await displayText(text,delay);
+ output.innerText=text;
  
 }
 
 function displayText(text,delay) {
-  setTimeout(() => {
-    output.innerText=text;
-  }, delay);
+  return new Promise((resolve,reject)=>{
+    setTimeout(() => {
+     resolve(true); //it resolves the promise after delay.. herfe we go..
+    }, delay);
+  });
 }
